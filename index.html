@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Academic homepage of Yimeng Wang. Research interests in natural language processing, trustworthy language models, and legal AI.">
+  <title>Yimeng Wang | Academic Homepage</title>
+  <style>
+    :root {
+      --bg: #f7f6f0;
+      --paper: #fffefa;
+      --ink: #243a43;
+      --muted: #617276;
+      --teal: #246b69;
+      --pale: #e8f3ef;
+      --line: #dae3de;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 85% 9%, #f4e8d9, transparent 30%), var(--bg);
+      color: var(--ink);
+      font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--teal); text-underline-offset: 4px; }
+    a:hover { color: #174b49; }
+    a:focus-visible { outline: 3px solid #d5a16a; outline-offset: 4px; }
+    .container { max-width: 1000px; padding: 0 24px; margin: 0 auto; }
+    .top {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 12px; font-weight: 750; letter-spacing: .17em; color: var(--teal); }
+    nav { display: flex; flex-wrap: wrap; gap: 24px; }
+    nav a { font-size: 14px; color: var(--ink); text-decoration: none; }
+    .hero {
+      display: grid; grid-template-columns: 1.3fr .9fr;
+      gap: 44px; align-items: center; padding: 76px 0 80px;
+    }
+    .eyebrow, .section-label {
+      margin: 0 0 12px; text-transform: uppercase; color: var(--teal);
+      font-weight: 750; letter-spacing: .14em; font-size: 12px;
+    }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; }
+    h1 { font-size: clamp(43px, 7vw, 72px); line-height: 1.08; letter-spacing: -.045em; margin: 0 0 24px; }
+    .intro { font-size: 18px; color: #52646a; max-width: 520px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    .tag { font-size: 13px; font-weight: 600; color: #24645f;
+      background: var(--pale); border-radius: 30px; padding: 5px 12px; }
+    .identity {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+      padding: 28px; box-shadow: 0 16px 45px #263e3810;
+    }
+    .identity h2 { font: 750 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase; letter-spacing: .08em; margin: 0 0 17px; }
+    .detail { border-top: 1px solid var(--line); padding: 13px 0; }
+    .detail .name { display: block; font-size: 12px; color: var(--muted); }
+    .detail strong { display: block; overflow-wrap: anywhere; font-size: 15px; }
+    section { border-top: 1px solid var(--line); padding: 43px 0 56px; }
+    h2 { font-size: 32px; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 18px; }
+    .copy { max-width: 820px; color: #52646a; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+    .card { padding: 23px; background: var(--paper); border: 1px solid var(--line); border-radius: 15px; }
+    .card h3 { font-size: 16px; line-height: 1.4; margin: 0 0 10px; }
+    .card p { color: var(--muted); font-size: 14px; margin: 0; }
+    .contact { background: var(--pale); border-radius: 16px; padding: 25px 28px; }
+    .contact p { margin: 4px 0; overflow-wrap: anywhere; }
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 0 44px; color: var(--muted);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px;
+    }
+    @media (max-width: 740px) {
+      .hero { grid-template-columns: 1fr; gap: 30px; padding: 52px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .intro { font-size: 16px; }
+    }
+    @media (max-width: 410px) {
+      .top { flex-direction: column; align-items: flex-start; gap: 10px; }
+      nav { gap: 16px; }
+      .container { padding: 0 18px; }
+      .identity { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="top">
+      <div class="brand">ACADEMIC / PROFILE</div>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Natural Language Processing · Legal AI</p>
+          <h1>Yimeng Wang</h1>
+          <p class="intro">Research interests in trustworthy language models, legal reasoning, and evidence-sensitive decision making.</p>
+          <div class="tags">
+            <span class="tag">LLM Reliability</span>
+            <span class="tag">Legal NLP</span>
+            <span class="tag">Model Editing</span>
+          </div>
+        </div>
+        <aside class="identity" aria-label="Academic identity">
+          <h2>Academic Identity</h2>
+          <div class="detail"><span class="name">Full name</span><strong>Yimeng Wang</strong></div>
+          <div class="detail"><span class="name">Affiliation</span><strong>University of Chicago</strong></div>
+          <div class="detail"><span class="name">Email</span><strong><a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></strong></div>
+          <div class="detail"><span class="name">GitHub</span><strong><a href="https://github.com/Yimeng0824">My GitHub profile ↗</a></strong></div>
+        </aside>
+      </div>
+
+      <section id="about">
+        <p class="section-label">01 / About</p>
+        <h2>Hello, I'm Yimeng Wang.</h2>
+        <p class="copy">My research interests lie at the intersection of natural language processing and reliable AI. I am particularly interested in how language models make decisions under changes to decisive evidence, and how to improve their behavior while preserving useful capabilities.</p>
+      </section>
+
+      <section id="research">
+        <p class="section-label">02 / Research Interests</p>
+        <h2>What I'm exploring</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Trustworthy Language Models</h3>
+            <p>Evaluating model reliability, failure modes, and robustness across changing evidence.</p>
+          </article>
+          <article class="card">
+            <h3>Legal Natural Language Processing</h3>
+            <p>Language technologies for legal reasoning, case understanding, and charge verification.</p>
+          </article>
+          <article class="card">
+            <h3>Model Editing</h3>
+            <p>Targeted behavior correction with attention to preservation and unintended changes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <p class="section-label">03 / Contact</p>
+        <h2>Get in touch</h2>
+        <div class="contact">
+          <p><strong>Yimeng Wang</strong> · University of Chicago</p>
+          <p>Email: <a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></p>
+          <p>GitHub: <a href="https://github.com/Yimeng0824">View my profile ↗</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Yimeng Wang</span>
+      <span>Academic homepage · Built with HTML &amp; CSS</span>
+    </footer>
+  </div>
+</body>
+</html>
