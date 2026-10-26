@@ -1,160 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Academic homepage of Yimeng Wang. Research interests in natural language processing, trustworthy language models, and legal AI.">
-  <title>Yimeng Wang | Academic Homepage</title>
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yimeng Wang</title>
+<meta name="description" content="Yimeng Wang, M.S. in Computer Science (AI) at the University of Chicago. LLM systems, agentic RAG, and model editing.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16191a" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Yimeng Wang">
+<meta property="og:description" content="M.S. in Computer Science (AI) at the University of Chicago. LLM systems, agentic RAG, and model editing.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6f5c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EYW%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f7f8f6;
+    --ink: #1d2321;
+    --muted: #5b6662;
+    --rule: #dde2df;
+    --accent: #1f6f5c;
+    --box: #ffffff;
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #f7f6f0;
-      --paper: #fffefa;
-      --ink: #243a43;
-      --muted: #617276;
-      --teal: #246b69;
-      --pale: #e8f3ef;
-      --line: #dae3de;
+      color-scheme: dark;
+      --paper: #16191a;
+      --ink: #e6ebe8;
+      --muted: #9aa6a1;
+      --rule: #2d3432;
+      --accent: #6cc3a8;
+      --box: #1d2122;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 85% 9%, #f4e8d9, transparent 30%), var(--bg);
-      color: var(--ink);
-      font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    a { color: var(--teal); text-underline-offset: 4px; }
-    a:hover { color: #174b49; }
-    a:focus-visible { outline: 3px solid #d5a16a; outline-offset: 4px; }
-    .container { max-width: 1000px; padding: 0 24px; margin: 0 auto; }
-    .top {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line);
-    }
-    .brand { font-size: 12px; font-weight: 750; letter-spacing: .17em; color: var(--teal); }
-    nav { display: flex; flex-wrap: wrap; gap: 24px; }
-    nav a { font-size: 14px; color: var(--ink); text-decoration: none; }
-    .hero {
-      display: grid; grid-template-columns: 1.3fr .9fr;
-      gap: 44px; align-items: center; padding: 76px 0 80px;
-    }
-    .eyebrow, .section-label {
-      margin: 0 0 12px; text-transform: uppercase; color: var(--teal);
-      font-weight: 750; letter-spacing: .14em; font-size: 12px;
-    }
-    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; }
-    h1 { font-size: clamp(43px, 7vw, 72px); line-height: 1.08; letter-spacing: -.045em; margin: 0 0 24px; }
-    .intro { font-size: 18px; color: #52646a; max-width: 520px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
-    .tag { font-size: 13px; font-weight: 600; color: #24645f;
-      background: var(--pale); border-radius: 30px; padding: 5px 12px; }
-    .identity {
-      background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
-      padding: 28px; box-shadow: 0 16px 45px #263e3810;
-    }
-    .identity h2 { font: 750 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      text-transform: uppercase; letter-spacing: .08em; margin: 0 0 17px; }
-    .detail { border-top: 1px solid var(--line); padding: 13px 0; }
-    .detail .name { display: block; font-size: 12px; color: var(--muted); }
-    .detail strong { display: block; overflow-wrap: anywhere; font-size: 15px; }
-    section { border-top: 1px solid var(--line); padding: 43px 0 56px; }
-    h2 { font-size: 32px; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 18px; }
-    .copy { max-width: 820px; color: #52646a; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-    .card { padding: 23px; background: var(--paper); border: 1px solid var(--line); border-radius: 15px; }
-    .card h3 { font-size: 16px; line-height: 1.4; margin: 0 0 10px; }
-    .card p { color: var(--muted); font-size: 14px; margin: 0; }
-    .contact { background: var(--pale); border-radius: 16px; padding: 25px 28px; }
-    .contact p { margin: 4px 0; overflow-wrap: anywhere; }
-    footer {
-      border-top: 1px solid var(--line); padding: 24px 0 44px; color: var(--muted);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px;
-    }
-    @media (max-width: 740px) {
-      .hero { grid-template-columns: 1fr; gap: 30px; padding: 52px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .intro { font-size: 16px; }
-    }
-    @media (max-width: 410px) {
-      .top { flex-direction: column; align-items: flex-start; gap: 10px; }
-      nav { gap: 16px; }
-      .container { padding: 0 18px; }
-      .identity { padding: 20px; }
-    }
-  </style>
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 1.0625rem/1.65 var(--serif);
+  }
+  .page { max-width: 54rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  nav { font-family: var(--sans); font-size: 0.9rem; margin-bottom: 3.5rem; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+
+  header h1 {
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+  .lede { font-size: 1.2rem; line-height: 1.55; max-width: 36em; margin: 0 0 1rem; }
+  .intro { max-width: 36em; margin: 0 0 1.5rem; color: var(--muted); }
+  .links { font-family: var(--sans); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+
+  /* placeholders: replace the <span class="pending"> with a real <a> when the link exists */
+  .pending { color: var(--muted); border-bottom: 1px dashed var(--rule); cursor: default; }
+
+  section { margin-top: 4rem; }
+  h2 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* entries: date/label gutter on the left on wide screens */
+  .entry { display: grid; grid-template-columns: 1fr; gap: 0.25rem; margin-bottom: 2.5rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .when { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 0.3rem; }
+  .entry h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; margin: 0; }
+  .role { margin: 0.15rem 0 0.6rem; color: var(--muted); font-style: italic; }
+  .entry p { margin: 0 0 0.75rem; max-width: 36em; }
+  .entry ul { margin: 0; padding-left: 1.1rem; max-width: 36em; }
+  .entry li { margin-bottom: 0.45rem; }
+  .entry li::marker { color: var(--muted); }
+  .stack { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+  .entry .links { margin-top: 0.75rem; font-size: 0.9rem; }
+
+  @media (min-width: 760px) {
+    .page { padding-top: 3.5rem; }
+    .entry { grid-template-columns: 9.5rem 1fr; gap: 0 2rem; }
+    .entry > .when { grid-row: 1 / span 10; }
+  }
+
+  /* BioFlow diagram */
+  figure { margin: 1.25rem 0 0; max-width: 24rem; }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+  .d-box { fill: var(--box); stroke: var(--rule); stroke-width: 1.25; }
+  .d-box.key { stroke: var(--accent); }
+  .d-aux { fill: none; stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 5 4; }
+  .d-aux-box { fill: var(--paper); stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 5 4; }
+  .d-line { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+  .d-head { fill: var(--muted); }
+  .d-title { fill: var(--ink); font: 600 14px var(--sans); }
+  .d-note { fill: var(--muted); font: 11.5px var(--sans); }
+
+  .pub-title { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin: 0 0 0.35rem; }
+
+  footer { margin-top: 5rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header class="top">
-      <div class="brand">ACADEMIC / PROFILE</div>
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="page">
 
-    <main>
-      <div class="hero">
-        <div>
-          <p class="eyebrow">Natural Language Processing · Legal AI</p>
-          <h1>Yimeng Wang</h1>
-          <p class="intro">Research interests in trustworthy language models, legal reasoning, and evidence-sensitive decision making.</p>
-          <div class="tags">
-            <span class="tag">LLM Reliability</span>
-            <span class="tag">Legal NLP</span>
-            <span class="tag">Model Editing</span>
-          </div>
-        </div>
-        <aside class="identity" aria-label="Academic identity">
-          <h2>Academic Identity</h2>
-          <div class="detail"><span class="name">Full name</span><strong>Yimeng Wang</strong></div>
-          <div class="detail"><span class="name">Affiliation</span><strong>University of Chicago</strong></div>
-          <div class="detail"><span class="name">Email</span><strong><a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></strong></div>
-          <div class="detail"><span class="name">GitHub</span><strong><a href="https://github.com/Yimeng0824">My GitHub profile ↗</a></strong></div>
-        </aside>
-      </div>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-      <section id="about">
-        <p class="section-label">01 / About</p>
-        <h2>Hello, I'm Yimeng Wang.</h2>
-        <p class="copy">My research interests lie at the intersection of natural language processing and reliable AI. I am particularly interested in how language models make decisions under changes to decisive evidence, and how to improve their behavior while preserving useful capabilities.</p>
-      </section>
+  <header>
+    <h1>Yimeng Wang</h1>
+    <p class="lede">I build LLM systems that have to be right: agentic retrieval for clinicians, training data for GUI agents, and reproducible research platforms.</p>
+    <p class="intro">I'm an M.S. student in Computer Science (AI) at the University of Chicago, graduating December 2027. I also do research on model editing for legal AI. I'm looking for Summer 2027 internships in software engineering, AI/ML engineering, and agent engineering.</p>
+    <ul class="links">
+      <li><a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></li>
+      <li><a href="https://www.linkedin.com/in/yimeng-wang-496252438/">LinkedIn</a></li>
+      <li><a href="https://github.com/Yimeng0824">GitHub</a></li>
+      <!-- TODO(resume): replace the next line with
+           <li><a href="Yimeng_Wang_Resume.pdf">Résumé (PDF)</a></li>
+           after uploading the public resume to the repo root -->
+      <li><span class="pending" title="Coming soon">Résumé (PDF), coming soon</span></li>
+    </ul>
+  </header>
 
-      <section id="research">
-        <p class="section-label">02 / Research Interests</p>
-        <h2>What I'm exploring</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Trustworthy Language Models</h3>
-            <p>Evaluating model reliability, failure modes, and robustness across changing evidence.</p>
-          </article>
-          <article class="card">
-            <h3>Legal Natural Language Processing</h3>
-            <p>Language technologies for legal reasoning, case understanding, and charge verification.</p>
-          </article>
-          <article class="card">
-            <h3>Model Editing</h3>
-            <p>Targeted behavior correction with attention to preservation and unintended changes.</p>
-          </article>
-        </div>
-      </section>
+  <section id="experience" aria-labelledby="h-exp">
+    <h2 id="h-exp">Experience</h2>
 
-      <section id="contact">
-        <p class="section-label">03 / Contact</p>
-        <h2>Get in touch</h2>
-        <div class="contact">
-          <p><strong>Yimeng Wang</strong> · University of Chicago</p>
-          <p>Email: <a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></p>
-          <p>GitHub: <a href="https://github.com/Yimeng0824">View my profile ↗</a></p>
-        </div>
-      </section>
-    </main>
+    <article class="entry">
+      <div class="when">Dec 2025 – Apr 2026<br>Beijing</div>
+      <h3>Baidu Health</h3>
+      <p class="role">AI Product Engineering Intern</p>
+      <ul>
+        <li>Built the DeepResearch agent behind the retrieval mode of Youyi Assistant, Baidu's evidence-based medical QA platform for clinicians, taking it from a Claude Skill prototype to production for the April 2026 launch. The team adopted the architecture I proposed.</li>
+        <li>Designed a multi-stage agentic RAG pipeline (decompose, retrieve, evaluate, generate) with parallel retrieval over drug-label, guideline, and literature indexes, and an LLM sufficiency check that triggers re-retrieval on about 18% of queries.</li>
+        <li>Cut time-to-first-token from about 2 minutes to about 10 seconds through parallel retrieval, streamed reasoning, leaner query decomposition, and better indexing (OCR-based PDF parsing, parent–child chunking).</li>
+        <li>Co-built with physicians a 1,000-query expert-annotated benchmark that gated model and pipeline releases.</li>
+      </ul>
+    </article>
 
-    <footer>
-      <span>© 2026 Yimeng Wang</span>
-      <span>Academic homepage · Built with HTML &amp; CSS</span>
-    </footer>
-  </div>
+    <article class="entry">
+      <div class="when">Feb 2025 – May 2025<br>Beijing</div>
+      <h3>Zhipu AI (Z.ai)</h3>
+      <p class="role">Data Engineering Intern, AutoGLM team</p>
+      <ul>
+        <li>Built pipelines turning raw GUI-agent logs into trajectory and SFT data for AutoGLM, Zhipu's phone- and web-operating agent: 180K+ trajectories (about 2M steps) across 60+ apps.</li>
+        <li>Synthesized about 40K instructions from about 2.5K seed tasks and filtered about 20% low-quality data with a VLM judge.</li>
+        <li>Designed data mixtures for 10+ ablations on a 9B model; upsampling long-horizon, cross-app trajectories raised multi-step task success by 4+ points with no single-app regression.</li>
+        <li>Improved the annotation platform's task dispatch and quality control for 80+ annotators, raising throughput by about 35% and cutting rework by about 40%.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="projects" aria-labelledby="h-proj">
+    <h2 id="h-proj">Projects</h2>
+
+    <article class="entry">
+      <div class="when">Sep 2025 – present</div>
+      <h3>BioFlow</h3>
+      <p class="role">Technical lead, AI-for-science platform at Peking Union Medical College Hospital</p>
+      <p>An internal platform that lets researchers build metagenomic analyses as graphs and get reproducible results and figures. It's used by about 50 researchers and has supported 30+ papers and projects. I'm one of two technical leads on the 40-person team and lead the data-analysis and skills modules (about 20 engineers), owning their system design and deployment.</p>
+      <p>The core is a DAG workflow engine: graphs are validated at compile time, compiled to Nextflow, cached by content so only invalidated nodes rerun, and every figure keeps a link to the run that produced it, so generated papers can only cite computed results.</p>
+      <p class="stack">FastAPI, React, TypeScript, Nextflow, Qwen3-14B (local)</p>
+
+      <figure>
+        <svg viewBox="0 0 360 582" role="img" aria-labelledby="bf-title bf-desc">
+          <title id="bf-title">BioFlow workflow</title>
+          <desc id="bf-desc">Six stages in order: node editor, compile-time validation, Nextflow execution, cache and resume, figure provenance, and paper module. Cache and resume loops back to execution so only invalidated nodes rerun. A local LLM assistant proposes whitelisted edits to the graph and sandboxed repairs to execution, both confirmed by the user.</desc>
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" class="d-head"/>
+            </marker>
+          </defs>
+
+          <!-- main flow: boxes x=28 w=288 h=58, step 80 -->
+          <g>
+            <rect class="d-box" x="28" y="10" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="34">Node editor</text>
+            <text class="d-note" x="44" y="54">Graphs built from 15+ registry-defined nodes</text>
+          </g>
+          <path class="d-line" d="M172 68 V88" marker-end="url(#ah)"/>
+          <g>
+            <rect class="d-box" x="28" y="90" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="114">Compile-time validation</text>
+            <text class="d-note" x="44" y="134">Port and type checks, cycle detection</text>
+          </g>
+          <path class="d-line" d="M172 148 V168" marker-end="url(#ah)"/>
+          <g>
+            <rect class="d-box key" x="28" y="170" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="194">Nextflow execution</text>
+            <text class="d-note" x="44" y="214">Queued runs, immutable run snapshots</text>
+          </g>
+          <path class="d-line" d="M172 228 V248" marker-end="url(#ah)"/>
+          <g>
+            <rect class="d-box key" x="28" y="250" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="274">Cache and resume</text>
+            <text class="d-note" x="44" y="294">Keyed by params, input hashes, DB manifest</text>
+          </g>
+          <path class="d-line" d="M172 308 V328" marker-end="url(#ah)"/>
+          <g>
+            <rect class="d-box" x="28" y="330" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="354">Figure provenance</text>
+            <text class="d-note" x="44" y="374">20+ figure types, each traced to its run</text>
+          </g>
+          <path class="d-line" d="M172 388 V408" marker-end="url(#ah)"/>
+          <g>
+            <rect class="d-box" x="28" y="410" width="288" height="58" rx="6"/>
+            <text class="d-title" x="44" y="434">Paper module</text>
+            <text class="d-note" x="44" y="454">Cites only results that were computed</text>
+          </g>
+
+          <!-- resume loop: cache back to execution, left rail -->
+          <path class="d-line" d="M28 279 H14 V199 H26" marker-end="url(#ah)"/>
+
+          <!-- LLM assistant, dashed, right rail into editor and execution -->
+          <g>
+            <rect class="d-aux-box" x="28" y="500" width="288" height="72" rx="6"/>
+            <text class="d-title" x="44" y="524">Local LLM assistant</text>
+            <text class="d-note" x="44" y="544">Proposes whitelisted edits; user confirms</text>
+            <text class="d-note" x="44" y="561">Sandboxed repair, at most two rounds</text>
+          </g>
+          <path class="d-aux" d="M316 536 H340 V39 H320" marker-end="url(#ah)"/>
+          <path class="d-aux" d="M340 199 H320" marker-end="url(#ah)"/>
+        </svg>
+        <figcaption>How a BioFlow analysis moves from graph to paper. Solid arrows are the pipeline; dashed arrows are assistant suggestions that need user confirmation.</figcaption>
+      </figure>
+    </article>
+
+    <article class="entry">
+      <div class="when">Dec 2025 – May 2026</div>
+      <h3>NutriWise</h3>
+      <p class="role">RAG-based digital textbook on child nutrition (undergraduate thesis)</p>
+      <p>A question-answering textbook with separate student and teacher modes, used by 800+ elementary school students through a deployment on their school's servers. Answers are grounded in reading materials written with nutrition experts at Peking Union Medical College Hospital, curated health articles, and 610 high-impact journal papers, and every answer lists its sources down to the PubMed ID.</p>
+      <p>In a blind evaluation, it outscored DeepSeek and Kimi on child-friendliness (4.9 vs. at most 3.3 out of 5) and traceability (4.8 vs. at most 2.2 out of 5).</p>
+      <p>Separately from the school deployment, I also deployed it to AWS EC2 with Docker Compose (app, Redis, and Caddy), automatic HTTPS, and streamed answers. GitHub Actions runs the pytest suite and Ruff on the open-source repo.</p>
+      <p class="stack">Python, Flask, LangChain, FAISS, BGE embeddings, server-sent events, Docker, AWS EC2, GitHub Actions</p>
+      <ul class="links">
+        <li><a href="https://github.com/Yimeng0824/NutriWise">Source and screenshots on GitHub</a></li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="when">In progress</div>
+      <h3>LexAsk</h3>
+      <p class="role">A legal agent that asks before it answers</p>
+      <p>Most legal assistants answer whatever they're given. LexAsk tracks which legal elements of a case are still unknown and uses a sufficiency scorer to decide when to ask, what to ask, and when to stop. I'm designing the scorer and training it into Qwen3-8B with SFT and multi-turn GRPO against simulated clients, with deterministic rewards that are hard to game.</p>
+    </article>
+  </section>
+
+  <!-- De-identified on purpose: no paper title, venue, benchmark name, or numbers until the paper may be listed publicly. -->
+  <section id="research" aria-labelledby="h-res">
+    <h2 id="h-res">Research</h2>
+    <article class="entry">
+      <div class="when">Jun 2026 – present</div>
+      <h3>Legal AI Group, University of International Business and Economics</h3>
+      <p class="role">Research Assistant, advised by Prof. Weijie Yu</p>
+      <p>I work on model editing and interpretability for legal AI. Language models asked to judge criminal cases can keep a guilty verdict even after a legally decisive fact changes. I study where that bias lives inside the model and how to correct it with targeted weight edits, fixing the unsupported verdicts while leaving the supported ones intact, instead of retraining the whole model.</p>
+    </article>
+  </section>
+
+  <section id="education" aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <article class="entry">
+      <div class="when">Expected Dec 2027</div>
+      <h3>University of Chicago</h3>
+      <p class="role">M.S. in Computer Science (Artificial Intelligence)</p>
+    </article>
+    <article class="entry">
+      <div class="when">2022 – 2026</div>
+      <h3>University of International Business and Economics</h3>
+      <p class="role">B.Eng. in Artificial Intelligence, GPA 3.78/4.0</p>
+      <p>China National Scholarship (top 1%), MCM Honorable Mention, Challenge Cup Gold Award.</p>
+    </article>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contact</h2>
+    <p style="max-width:36em;margin:0 0 1rem">The fastest way to reach me is email. I'm happy to talk about internships, RAG and agent systems, or legal and medical AI.</p>
+    <ul class="links">
+      <li><a href="mailto:yimeng24@uchicago.edu">yimeng24@uchicago.edu</a></li>
+      <li><a href="https://www.linkedin.com/in/yimeng-wang-496252438/">LinkedIn</a></li>
+      <li><a href="https://github.com/Yimeng0824">GitHub</a></li>
+    </ul>
+  </section>
+
+  <footer>© 2026 Yimeng Wang. Chicago, IL.</footer>
+</div>
 </body>
 </html>
